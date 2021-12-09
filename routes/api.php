@@ -19,6 +19,9 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
-// Route::post('login', [AuthController::class, 'login']);
-Route::resource('room', RoomController::class);
-Route::post('room/{id}', [RoomController::class, 'update']);
+
+Route::post('login', [AuthController::class, 'login']);
+Route::group(['middleware' => 'auth:sanctum'], function () {
+    Route::resource('room', RoomController::class);
+    Route::post('room/{id}', [RoomController::class, 'update']);
+});

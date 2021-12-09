@@ -45,6 +45,10 @@ Route::get('/resepsionis', [ResepsionisController::class, 'index']);
 
 Route::get('/dashboard', function () {
     return view('dashboard');
-})->middleware(['auth'])->middleware(['auth'])->name('resepsionis');
+})->middleware(['auth'])->name('resepsionis');
+
+Route::get('vue/{any}', function () {
+    return view('vue');
+})->where('any', '.*')->middleware(['auth']);
 
 require __DIR__ . '/auth.php';

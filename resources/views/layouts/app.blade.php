@@ -15,9 +15,11 @@
 
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}" defer></script>
+        {{-- ini tambahan vue --}}
+        <link href="{{ mix('css/app.css') }}" type="text/css" rel="stylesheet">
     </head>
     <body class="font-sans antialiased">
-        <div class="min-h-screen bg-gray-100">
+        {{-- <div class="min-h-screen bg-gray-100">
             @include('layouts.navigation')
 
             <!-- Page Heading -->
@@ -31,6 +33,8 @@
             <main>
                 {{ $slot }}
             </main>
-        </div>
+        </div> --}}
+        <div id="app"></div>
+        <script src="{{ mix('js/app.js') }}" type="text/javascript" rel="stylesheet"></script>
     </body>
 </html>
